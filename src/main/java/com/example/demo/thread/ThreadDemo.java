@@ -79,10 +79,23 @@ public class ThreadDemo {
         CompletionService<String> completionService = new ExecutorCompletionService<>(executor);
         completionService.submit(new Thread3(333));
         completionService.submit(new Thread3(444));
+        BlockingQueue<Integer> arrayBlockingQueue = new ArrayBlockingQueue<>(30);
+        arrayBlockingQueue.add(22);
+        arrayBlockingQueue.put(23);
+        boolean insertResult =  arrayBlockingQueue.offer(35);
+        boolean insertResultWithTime =  arrayBlockingQueue.offer(35, 3000, TimeUnit.MILLISECONDS);
 
+        arrayBlockingQueue.poll();
+        arrayBlockingQueue.poll(1000, TimeUnit.MILLISECONDS);
+        arrayBlockingQueue.take();
+        int peelResult = arrayBlockingQueue.peek();
         System.out.println(completionService.take().get());
         System.out.println(completionService.take().get());
         System.out.println(completionService.poll(3000, TimeUnit.MILLISECONDS).get());
+
+        BlockingQueue<Integer> linkedBlockingQueue = new LinkedBlockingQueue<>(30);
+        linkedBlockingQueue.put(35);
+        linkedBlockingQueue.add(22);
 
         ThreadPoolExecutor executor1 = new ThreadPoolExecutor(10, 100, 3000, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<>(30), new ThreadPoolExecutor.CallerRunsPolicy());
         CompletionService<String> completionService1 = new ExecutorCompletionService<>(executor1);

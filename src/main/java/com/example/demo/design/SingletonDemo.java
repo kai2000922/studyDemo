@@ -1,7 +1,6 @@
 package com.example.demo.design;
 
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.support.AbstractBeanFactory;
 import org.springframework.jndi.support.SimpleJndiBeanFactory;
 
 import java.util.HashMap;
@@ -12,7 +11,7 @@ import java.util.Map;
  * @author: hanguokai1
  * @create: 2022-09-20 17:08
  **/
-public class Singleton {
+public class SingletonDemo {
 
     private static volatile Map<String, Object> allUsers = null;
 

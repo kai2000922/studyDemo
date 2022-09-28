@@ -8,7 +8,7 @@ import java.util.Map;
  * @author: hanguokai1
  * @create: 2022-09-20 18:05
  **/
-public class Factory {
+public class FactoryDemo {
 
     public static void main(String[] args) {
         BeanFactory beanFactory = new BeanFactory();
